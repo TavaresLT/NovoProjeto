@@ -17,20 +17,28 @@ namespace SalesWebMvc.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["Message"] = "Sobre escreve a chave massage.";
+            ViewData["email"] = "lucastvspvh90@gmail.com";
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Your contact page.";  
+
+            return View();
+        }
+
+        public IActionResult Information() 
+        {
+            ViewData["message"] = "This site is for you.";
 
             return View();
         }
 
         public IActionResult Privacy()
         {
+          
             return View();
         }
 
