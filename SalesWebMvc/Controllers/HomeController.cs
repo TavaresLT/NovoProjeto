@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SalesWebMvc.Models;
+using SalesWebMvc.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using SalesWebMvc.Models;
 
 namespace SalesWebMvc.Controllers
 {
@@ -12,24 +13,25 @@ namespace SalesWebMvc.Controllers
     {
         public IActionResult Index()
         {
+            List<Department> list = new List<Department>();
             return View();
         }
 
         public IActionResult About()
         {
             ViewData["Message"] = "Sobre escreve a chave massage.";
-            ViewData["email"] = "lucastvspvh90@gmail.com";
+            ViewData["email"] = "educamais@gmail.com";
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";  
+            ViewData["Message"] = "Your contact page.";
 
             return View();
         }
 
-        public IActionResult Information() 
+        public IActionResult Information()
         {
             ViewData["message"] = "This site is for you.";
 
@@ -38,7 +40,7 @@ namespace SalesWebMvc.Controllers
 
         public IActionResult Privacy()
         {
-          
+
             return View();
         }
 
