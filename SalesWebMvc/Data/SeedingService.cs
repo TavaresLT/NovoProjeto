@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
 using SalesWebMvc.Models.Enums;
+using SalesWebMvc.Views.Sellers.Exceptions;
 
 namespace SalesWebMvc.Data
 {
@@ -18,9 +20,16 @@ namespace SalesWebMvc.Data
 
         public void Seed()
         {
-            if (_context.Department.Any() || _context.Seller.Any() || _context.SalesRecords.Any())
+            try
             {
-                return; //DB banco de dados já foi populado.
+                if (_context.Department.Any() || _context.Seller.Any() || _context.SalesRecords.Any())
+                {
+                    return; //DB banco de dados já foi populado.
+                }
+            }
+            catch (DbUpdateException e) 
+            {
+                throw new DbConcurrencyException(e.Message);
             }
 
             Department d1 = new Department(1, "Computers");
