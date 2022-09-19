@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
 using SalesWebMvc.Models.Enums;
-using SalesWebMvc.Views.Sellers.Exceptions;
+using SalesWebMvc.Services.Exceptions;
 
 namespace SalesWebMvc.Data
 {

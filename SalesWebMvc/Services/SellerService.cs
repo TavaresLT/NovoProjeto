@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using SalesWebMvc.Models;
 using Microsoft.EntityFrameworkCore;
-using SalesWebMvc.Views.Sellers.Exceptions;
 using System.Threading.Tasks;
+using SalesWebMvc.Services.Exceptions;
 
 namespace SalesWebMvc.Services
 {
@@ -43,7 +43,7 @@ namespace SalesWebMvc.Services
             }
             catch (DbUpdateException e) 
             {
-                throw new DbConcurrencyException(e.Message);
+                throw new IntegrityException("Can't delete seller because he/she has sales");
             }
         }
 
